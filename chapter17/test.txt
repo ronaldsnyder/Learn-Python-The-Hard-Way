@@ -2,3 +2,4 @@ Learn Python the Hard Way
 1/11/2014
 Streak Day 3
 Lets Do this
+Test of Github commits and activity
