@@ -1,3 +1,4 @@
-Hi, my name is Ron
-I like turtles
-PYTHON
+
+'Hi, my name is Ron'
+'I like Python'
+"Mice don't like python"
