@@ -35,7 +35,7 @@ def getPointTotal(rolls):
             print "6 of a kind"
             score = score + (i * 400)                        
     if myCount.count(2) == 3:
-        print "scored count three pair!"
+        print "Nice Roll, 3 pair!"
         score = score + 1500
     elif myCount.count(4)  == 1 and myCount.count(2) == 1:
         print "scored four of a kind and 2 of a kind"
@@ -47,6 +47,9 @@ def getPointTotal(rolls):
     if myCount[5] < 3 and myCount[5] > 0 and score != 1500:
         print "Scored on 5's"
         score = score + (myCount[5] * 50)
+    if myCount[1] == 1 and myCount[2] == 1 and myCount[3] == 1 and myCount[4] == 1 and myCount[5] == 1 and myCount[6] == 1:
+        print "You got a straight!"
+        score = score + 1500
     elif score == 0:
         print "You failed to score"
     
