@@ -3,8 +3,8 @@ from sys import exit
 
 class Hero(object):
     def __init__(self):
-        self.health = 12.5
-        self.hp = 12.5
+        self.health = 200
+        self.hp = 200
         self.mp = 20
         self.strength = 15
         self.wisdom = 15        
@@ -61,20 +61,18 @@ class Hero(object):
 class Mage(Hero):
     def __init__(self):
         self.name = "Marlin"
-        self.weapon = 'staff'
-        
-        self.hp = 200
+        self.weapon = 'staff'       
         self.strength = 5
         self.wisdom = 25
+
         
 class Fighter(Hero):
     def __init__(self):
         self.name = "Miz"
         self.weapon = 'Sword'
-        
-        self.hp = 200
         self.strength = 25
         self.wisdom = 5
+        self.armor = 25
             
 maz = Mage();
 miz = Fighter()

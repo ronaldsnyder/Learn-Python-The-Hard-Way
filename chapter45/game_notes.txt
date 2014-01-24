@@ -1,0 +1,32 @@
+Scene is a battle arena where hero fights a series of creatures. 
+Fighting is turn based
+
+Hero --
+	Attack with sword is default
+	gain better items and skills as fight goes on
+	Heal with potions
+	Can get hurt
+	Can dodge an attack
+	Can mitigate damage with armor
+	Attributes:
+		Hit Points - Amount of total hitpoints
+		Health     - health remaining
+		inventory  - list of items available
+		wallet     - amount of gold
+		attack     - striking power
+		armor slot  - helps mitigate damage
+		weapon slot - increases attack
+		
+	
+Monster
+	Each Monster has different abilities
+	Some can heal
+	Some are weak to other abilities
+	monster drop gold
+	
+
+GamePlay
+	Hero picks decision - need Menu
+	
+
+	
