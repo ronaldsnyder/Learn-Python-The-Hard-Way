@@ -29,4 +29,17 @@ GamePlay
 	Hero picks decision - need Menu
 	
 
-	
+weapons - create a weapon class and pass in an item from the list
+	item has:
+		Name
+		Description
+		Value
+		Attack
+
+
+Armor - create a armor class and pass in an item from the list
+	item has:
+		Name
+		Description
+		Value
+		protection	

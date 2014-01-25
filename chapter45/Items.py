@@ -6,8 +6,8 @@ heal = { "h1": ["Healing Potion", 40, 40, 'Heals for 40 points'],
          
          }
 #item name is key, list is [item name, attack, cost, description]
-weapon = {"sw1": ["Rusty Sword", 5, 5, "An old rusty sword that looks like it could break at the next swing"]
+weapon = {"Rusty Sword": ["Rusty Sword", 5, 5, "An old rusty sword that looks like it could break at the next swing"]
           }
-#item name is key, list is [item name, armor, cost, description]
-armor = {"car": ["Cloth Armor", 1, 0, "Clothes that look gnawed on by mice"]
+#item name is key, list is [item name, armor, cost, addedHP, description]
+armor = {"Cloth Armor": ["Cloth Armor", 1, 0, 1, "Clothes that look gnawed on by mice"]
           }
