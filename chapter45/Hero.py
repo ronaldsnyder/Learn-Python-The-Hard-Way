@@ -89,5 +89,5 @@ class Hero(object):
             print "%s was hit for %s" % (self.name, amount)
             print "%s has %s hp left" % (self.name, self.availhp)
 
-   
+   def show_items(self):
     
