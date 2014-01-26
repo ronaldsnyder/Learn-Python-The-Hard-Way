@@ -23,9 +23,6 @@ class Hero(object):
         
         
     def strike(self, enemy):
-        #can miss
-        #can crit hit
-        
         #hit roll
         
         hit = random.randint(0,6)
@@ -45,7 +42,11 @@ class Hero(object):
             print "%s armor absorbed the hit" %enemy.name
         
         
-        return damage   
+        return damage
+    
+    def kick(self):      
+        damage = random.randint(0,10)
+        return damage    
     
     def add_inventory(self, item):
         self.inventory.append(item[0])
@@ -79,7 +80,7 @@ class Hero(object):
             print 'full heal'
             self.availhp = self.maxhp
         print "The %s healed to %s" % (self.name, self.availhp)
-        
+       
     def damage(self, amount):
         if amount > self.availhp:
             #dead
@@ -89,5 +90,4 @@ class Hero(object):
             print "%s was hit for %s" % (self.name, amount)
             print "%s has %s hp left" % (self.name, self.availhp)
 
-   def show_items(self):
     

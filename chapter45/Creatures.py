@@ -6,7 +6,7 @@ class Monster(Hero):
         super(Monster,self).__init__()
         self.name = 'Monster'
         
-    def die(self):
+    def die(self, hero):
         #each monster needs to drop item and give to hero.
-        pass
+        hero.add_inventory('Healing Potion')
     
