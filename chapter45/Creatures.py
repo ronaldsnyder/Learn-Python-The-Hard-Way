@@ -5,4 +5,8 @@ class Monster(Hero):
     def __init__(self):
         super(Monster,self).__init__()
         self.name = 'Monster'
+        
+    def die(self):
+        #each monster needs to drop item and give to hero.
+        pass
     

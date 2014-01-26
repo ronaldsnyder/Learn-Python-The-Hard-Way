@@ -12,7 +12,7 @@ class Hero(object):
         self.maxhp = 200
         self.availhp = self.maxhp
         self.attack = 10
-        self.defense = 10
+        self.defense = 5
         self.weapon = 0
         self.armor = 0
         self.level = 1
@@ -25,9 +25,25 @@ class Hero(object):
     def strike(self, enemy):
         #can miss
         #can crit hit
-        damage = random.randint(1,self.attack)
-        #we need to take into account enemy armor or avoidance
-        #need to define an enemy class to complete
+        
+        #hit roll
+        
+        hit = random.randint(0,6)
+
+        if hit == 0:
+            damage = 0
+            
+        elif hit == 6:
+            print "CRITICAL HIT FOR %s" % self.name
+            damage = random.randint(5,self.attack) + self.attack - enemy.defense
+            
+        else:
+            damage = random.randint(5,self.attack) - enemy.defense
+            
+        if damage < enemy.defense:
+            damage = 0
+            print "%s armor absorbed the hit" %enemy.name
+        
         
         return damage   
     
@@ -64,7 +80,14 @@ class Hero(object):
             self.availhp = self.maxhp
         print "The %s healed to %s" % (self.name, self.availhp)
         
-    
+    def damage(self, amount):
+        if amount > self.availhp:
+            #dead
+            print "I should have died"
+        else:
+            self.availhp = self.availhp - amount
+            print "%s was hit for %s" % (self.name, amount)
+            print "%s has %s hp left" % (self.name, self.availhp)
 
    
     

@@ -43,3 +43,8 @@ Armor - create a armor class and pass in an item from the list
 		Description
 		Value
 		protection	
+		
+Arena - Where the fight happens 
+
+	fight - hero and monster as params
+	knows each round of fight.

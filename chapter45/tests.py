@@ -10,4 +10,6 @@ myHero = Hero()
 
 myMonster = Monster()
 
-print myMonster.name
+amount = myHero.strike(myMonster)
+print amount
+myMonster.damage(amount)
