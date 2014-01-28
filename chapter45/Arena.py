@@ -1,16 +1,28 @@
-from Creatures import Monster
+from Creatures import *
+from Hero import Hero
+import Items
+
+import os
+clear = lambda: os.system('clear')
 
 class Arena(object):
     def __init__(self):
-        self.description = """Welcome to King Reprecht's Arena!  To punish the rebellion scums
-        the Legion of Hell will fight everyone to the DEATH! """
+        self.description = """
+        Welcome to King Reprecht's Arena!  To punish the rebellion scums
+        the Legion of Hell will fight everyone to the DEATH! \n"""
         self.Legion = []
         self.tournament()
         
     def tournament(self):
         #instantiate monsters and put them in legion lists
         #for each monster in legion list fight
-        myMonster = Monster()
+        print self.description
+        myMonster = Goblin()
+        myHero = Hero()
+        myHero.add_weapon(Items.weapon['Rusty Sword'])
+        myHero.add_armor(Items.armor['Cloth Armor'])
+        
+        self.fight(myHero, myMonster)
         
     
     def fight(self,hero, monster):
@@ -25,7 +37,7 @@ class Arena(object):
             hero.damage(hit)
             
             if monster.availhp <= 0:
-                monster.die()
+                monster.die(hero)
                 monsterAlive = False     
             elif hero.availhp <= 0:
                 hero.die()
@@ -34,26 +46,33 @@ class Arena(object):
         
     
     def menu(self,hero ,monster):
+        #clear()
         print """
         1. Strike with weapon
         2. Kick with your boot
         3. Use Item """
         
-        answer = raw_input("Select your action")
+        answer = raw_input("Select your action: ")
         
-        if answer == 1:
+        if answer == "1":
+            print 
             hit = hero.strike(monster)
             monster.damage(hit)
             
-        elif answer == 2:
-            pass 
+        elif answer == "2":
+            hero.kick()
         
-        elif answer == 3:
-            for (counter, item) in enumerate(hero.inventory):
-                print counter, item
-                menu = {counter: item}
+        elif answer == "3":
+            #for (counter, item) in enumerate(hero.inventory):
+                #print counter, item
+                #menu = {counter: item}
+            if hero.inventory:
+                hero.use_item()
+            else:
+                print "Your inventory is empty \n"
+                self.menu(hero, monster)
                 
-            answer = raw_input(menu)
+            
             
             #need a way for hero to use heal items.  We are printing the name, need to get item and use it.
                 

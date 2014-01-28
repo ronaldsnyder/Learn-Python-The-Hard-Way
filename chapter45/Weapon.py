@@ -4,7 +4,7 @@ class Weapon(object):
         self.name = weapon[0]
         self.attack = weapon[1]
         self.cost = weapon[2]
-        self.description = [3]
+        self.description = weapon[3]
         
     def description(self):
         print self.description
