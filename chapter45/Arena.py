@@ -38,11 +38,12 @@ class Arena(object):
         self.fight(myHero, myMonster)
         
         #second fight
+        self.next_round(myHero)
+        
         myMonster = Warrior()
         myMonster.add_weapon(Items.weapon['Battle Axe'])
         myMonster.add_armor(Items.armor['Chain Armor'])
-        print '\nThe arena medic heals all of %s injuries' % myHero.name
-        myHero.availhp = myHero.maxhp
+        
         self.fight(myHero, myMonster)
     
     def fight(self,hero, monster):
@@ -67,11 +68,15 @@ class Arena(object):
         
     
     def menu(self,hero ,monster):
-        print """
+        myMenu = """
         1. Strike with weapon
         2. Kick with your boot
-        3. Use Item \n"""
+        3. Use Item """
         
+        if hero.super:
+            myMenu = myMenu + """\n\t4. Special Attack"""
+        
+        print myMenu
         answer = raw_input("Select your action: ")
         clear()
         
@@ -92,11 +97,16 @@ class Arena(object):
             else:
                 print "Your inventory is empty \n"
                 self.menu(hero, monster)
-            
+        elif answer == "4":
+            hit = hero.super_strike(monster)
+            monster.damage(hit)   
         else:
             clear()
             print "Invalid Choice, try again"
             self.menu(hero,monster)    
     
                 
-            
+    def next_round(self, hero):
+        print '\nThe arena medic heals all of %s injuries' % hero.name
+        hero.availhp = hero.maxhp
+        hero.super = True

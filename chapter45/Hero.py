@@ -16,6 +16,7 @@ class Hero(object):
         self.weapon = 0
         self.armor = 0
         self.level = 1
+        self.super = True
         
         #intangibles 
         self.inventory = ["Healing Potion"]
@@ -48,6 +49,27 @@ class Hero(object):
         
         
         return damage
+    
+    def super_strike(self, enemy):
+        if self.super:
+            print "This attack can only be used once per fight.\n"
+            
+            i = random.randint(0,5)
+            say = ['By the power of Greyskull, I HAVE THE POWER',
+                   "Say hello to my little friend",
+                   "Hello, my name is Inigo Montoya. You killed my father. Prepare to die.",
+                   "I have come here to chew bubblegum and kick ass, and I'm all out of bubblegum",
+                   "You've gotta ask yourself a question: do I feel lucky? ...well, do ya, punk?!?"]
+            print "%s \n" % say[i]
+            
+            damage = random.randint(10,self.attack) + self.attack
+            self.super = False
+            return damage
+        else:
+            self.strike(enemy)
+        
+        
+        
     
     def kick(self):
         #kick has a 25 percent chance to miss
@@ -110,7 +132,7 @@ class Hero(object):
     
     
     def heal(self, amount):
-        if self.availhp >= self.maxhp + amount[1]:
+        if self.maxhp <= self.availhp + amount[1]:
             self.availhp = self.availhp + amount[1]
         else:
             print 'full heal'

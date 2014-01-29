@@ -46,7 +46,7 @@ class Goblin(Hero):
                    "Yous sword is brittle as yous bones!",
                    "Me only wanted to eat",
                    "Me not sorry, me HUNGRY!"]
-        say = random.randint(0,10)
+        say = random.randint(0,9)
         print "%s says:" % self.name
         print '%s \n ' % sayings[say]
 
@@ -81,6 +81,6 @@ class Warrior(Hero):
                    "Maximus was a sisssy",
                    "Rebels only win in Star Wars",
                    "Rebel,  I am your father....HAHAHA, not really."]
-        say = random.randint(0,10)
+        say = random.randint(0,9)
         print "%s says:" % self.name
         print '%s \n ' % sayings[say]  
