@@ -1,22 +1,35 @@
 from Creatures import *
 from Hero import Hero
 import Items
+import textwrap 
 
 import os
 clear = lambda: os.system('clear')
 
 class Arena(object):
     def __init__(self):
+        header = '*' * 75
         self.description = """
-        Welcome to King Reprecht's Arena!  To punish the rebellion scums
-        the Legion of Hell will fight everyone to the DEATH! \n"""
-        self.Legion = []
+        %s
+        Welcome to King Reprecht's Arena!
+        To punish the rebellion scums the Legion of Hell will fight the recently
+        captured rebel  
+        to the DEATH! 
+        %s""" % (header, header)
+        
+        print '*' * 25
+        
         self.tournament()
         
     def tournament(self):
+        #clear anything in the terminal.
+        clear()
+        
         #instantiate monsters and put them in legion lists
         #for each monster in legion list fight
-        print self.description
+        print textwrap.dedent(self.description)
+        
+        #first fight
         myMonster = Goblin()
         myHero = Hero()
         myHero.add_weapon(Items.weapon['Rusty Sword'])
@@ -24,6 +37,13 @@ class Arena(object):
         
         self.fight(myHero, myMonster)
         
+        #second fight
+        myMonster = Warrior()
+        myMonster.add_weapon(Items.weapon['Battle Axe'])
+        myMonster.add_armor(Items.armor['Chain Armor'])
+        print '\nThe arena medic heals all of %s injuries' % myHero.name
+        myHero.availhp = myHero.maxhp
+        self.fight(myHero, myMonster)
     
     def fight(self,hero, monster):
         monsterAlive = True
@@ -33,6 +53,7 @@ class Arena(object):
             self.menu(hero, monster)
             
             #monster damage
+            monster.talk_smack()
             hit = monster.strike(hero)
             hero.damage(hit)
             
@@ -41,18 +62,18 @@ class Arena(object):
                 monsterAlive = False     
             elif hero.availhp <= 0:
                 hero.die()
-            
+
         
         
     
     def menu(self,hero ,monster):
-        #clear()
         print """
         1. Strike with weapon
         2. Kick with your boot
-        3. Use Item """
+        3. Use Item \n"""
         
         answer = raw_input("Select your action: ")
+        clear()
         
         if answer == "1":
             print 
@@ -71,9 +92,11 @@ class Arena(object):
             else:
                 print "Your inventory is empty \n"
                 self.menu(hero, monster)
-                
             
-            
-            #need a way for hero to use heal items.  We are printing the name, need to get item and use it.
+        else:
+            clear()
+            print "Invalid Choice, try again"
+            self.menu(hero,monster)    
+    
                 
             

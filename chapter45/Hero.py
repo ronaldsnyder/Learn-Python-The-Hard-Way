@@ -61,7 +61,7 @@ class Hero(object):
         return damage    
     
     def add_inventory(self, item):
-        self.inventory.append(item[0])
+        self.inventory.append(item)
     
     def print_inventory(self):
         for item in self.inventory:
