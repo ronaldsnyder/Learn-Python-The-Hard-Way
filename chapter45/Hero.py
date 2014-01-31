@@ -4,6 +4,7 @@ import Items
 import random
 from Weapon import Weapon
 from Armor import Armor
+import textwrap
 
 class Hero(object):
     def __init__(self):
@@ -18,9 +19,18 @@ class Hero(object):
         self.level = 1
         self.super = True
         
+        self.description ="""
+        Today's challenger is from the rebellion.  He was caught trying to free 
+        the slaves from the cities dungeon.  %s is the worst kind of rebel as he
+        is also a traitor.  He was born, trained and one of the Kingdoms most 
+        loyal soldiers up until he deserted at the Battle of Big Littlehorn.
+        
+        """ % self.name
+        
         #intangibles 
         self.inventory = ["Healing Potion"]
-        self.wallet = 0
+        
+        
         
         
     def strike(self, enemy):
@@ -42,25 +52,20 @@ class Hero(object):
         if damage < 0:
             damage = 0
             print "%s armor absorbed the hit" %enemy.name
-            
-        #if damage < enemy.defense:
-            #damage = 0
-            #print "%s armor absorbed the hit" %enemy.name
-        
         
         return damage
     
     def super_strike(self, enemy):
         if self.super:
-            print "This attack can only be used once per fight.\n"
+            print "POWER ATTACK!  \n%s strikes with determination and anger.\n" % self.name
             
-            i = random.randint(0,5)
+            i = random.randint(0,4)
             say = ['By the power of Greyskull, I HAVE THE POWER',
                    "Say hello to my little friend",
                    "Hello, my name is Inigo Montoya. You killed my father. Prepare to die.",
                    "I have come here to chew bubblegum and kick ass, and I'm all out of bubblegum",
                    "You've gotta ask yourself a question: do I feel lucky? ...well, do ya, punk?!?"]
-            print "%s \n" % say[i]
+            print '%s says "%s"\n' % (self.name, say[i])
             
             damage = random.randint(10,self.attack) + self.attack
             self.super = False
@@ -150,4 +155,5 @@ class Hero(object):
     def die(self):
         "MIZ DIED"
 
-    
+    def introduction(self):
+        print textwrap.dedent(self.description)

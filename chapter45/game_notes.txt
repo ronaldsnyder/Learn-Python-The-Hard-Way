@@ -22,7 +22,7 @@ Monster
 	Each Monster has different abilities
 	Some can heal
 	Some are weak to other abilities
-	monster drop gold
+
 	
 
 GamePlay

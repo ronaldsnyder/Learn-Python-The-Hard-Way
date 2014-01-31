@@ -22,14 +22,19 @@ class Goblin(Hero):
         self.availhp = 150
         self.description = """
         Welcome to the Arena our first Legion of Hell member, %s.  This is this goblins 
-        first fight in the Arena.
+        first fight in the Arena.  The goblin was caught stealing from the Kings market
+        and has been training under the watchful eye of the Kingdom for the last six
+        months.
         
-        %s looks weak and scared\n""" % (self.name, self.name)
+        %s looks weak and scared.\n""" % (self.name, self.name)
         
         print textwrap.dedent(self.description)
         
     def die(self, hero):
         #each monster needs to drop item and give to hero.
+        print '%s falls and says "Meees only wanted to feed mees family \n' % (self.name)
+        print '%s has died' % (self.name)
+               
         hero.add_inventory('Healing Potion')
         
         hero.add_weapon(Items.weapon['Sword'])
@@ -59,9 +64,10 @@ class Warrior(Hero):
         self.description = """
         The second fight is a veteran of the Arena named %s.
         
-        %s looks like a formidable opponent who has the scars to prove his experience""" % (self.name, self.name)
+        %s looks like a formidable opponent who has the scars to prove his experience.
+        """ % (self.name, self.name)
         
-        print self.description
+        print textwrap.dedent(self.description)
         
     def die(self, hero):
         #each monster needs to drop item and give to hero.
