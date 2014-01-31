@@ -31,7 +31,7 @@ class Arena(object):
         myMonster = Goblin()
         myHero = Hero()
         myHero.introduction()
-        myHero.add_weapon(Items.weapon['Rusty Sword'])
+        myHero.add_weapon(Items.weapon['Test Sword'])
         myHero.add_armor(Items.armor['Cloth Armor'])
         
         self.fight(myHero, myMonster)

@@ -61,10 +61,13 @@ class Warrior(Hero):
         super(Warrior,self).__init__()
         self.name = 'Bull'
         self.availhp = 150
-        self.description = """
-        The second fight is a veteran of the Arena named %s.
+        self.description = """ 
+        The second fight is a veteran of the Arena named %s.  He is a perfect 27-0 in 
+        the Arena.  He lost his arm in the last battle and WON! That isn't keeping Bull
+        from fighting another match.
         
-        %s looks like a formidable opponent who has the scars to prove his experience.
+        %s looks like a once formidable opponent, he would probably do better with another 
+        arm.
         """ % (self.name, self.name)
         
         print textwrap.dedent(self.description)
@@ -77,16 +80,16 @@ class Warrior(Hero):
         hero.add_armor(Items.armor['Chain Armor'])
         
     def talk_smack(self):
-        sayings = ["I will crush your face with my fist!",
-                   "I have fought 100 battles against better men than you!",
+        sayings = ["I will crush your face with my stub arm!",
+                   "I have fought 27 battles against better men than you!",
                    "Take a knee and I promise to not let you suffer!",
-                   "I can smell your fear of me",
-                   "There is more blood dried on my weapon than in your body",
-                   "That sword looks like it tickles.",
-                   "FREEEEEEEEEEEDOOOOOOOOOOOOOOOOM",
-                   "Maximus was a sisssy",
-                   "Rebels only win in Star Wars",
-                   "Rebel,  I am your father....HAHAHA, not really."]
+                   "I could beat you with one arm tied behind my back, AHAHAHHAHA",
+                   "Want to touch my stub?",
+                   "You are my last fight, I need your ARM!",
+                   "I don't need two arms to kill a traitor.",
+                   "The kingdom promised my release after I kill you.",
+                   "I am going to take your arm when this fight is over, HAHAHAHAHA",
+                   "Your children will be disappointed to hear you were killed by a one armed man."]
         say = random.randint(0,9)
         print "%s says:" % self.name
         print '%s \n ' % sayings[say]  
