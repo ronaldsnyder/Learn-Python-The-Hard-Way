@@ -6,6 +6,9 @@ from Weapon import Weapon
 from Armor import Armor
 import textwrap
 
+import os
+clear = lambda: os.system('clear')
+
 class Hero(object):
     def __init__(self):
         #self stats
@@ -98,21 +101,39 @@ class Hero(object):
             
     
     def use_item(self):
-        for item in self.inventory:
-            myItem = Items.heal[item]
-            print "%s: %s" % (myItem[0], myItem[3])
-            
+        #for item in self.inventory:
+            #myItem = Items.heal[item]
+            #print "%s: %s" % (myItem[0], myItem[3])
+        print '\t*********ITEM LIST**********'    
         for (counter, item) in enumerate(self.inventory):
             myItem = Items.heal[item]
             #print counter, item
-            print "%s.  %s: %s" % (counter, myItem[0], myItem[3])
+            print "\t%s.  %s: %s" % (counter + 1, myItem[0], myItem[3])
         
         #need to make sure choice is an int
-        choice = raw_input('select item to use ')
+        choice = raw_input('\nSelect item to use: ')
         
-        myItem = self.inventory[int(choice)]
-        self.heal(Items.heal[myItem]) 
-        self.inventory.remove(myItem)
+        try:
+            choice = int(choice) - 1
+            valid = True
+        except:
+            clear()
+            valid = False
+            print 'Please enter a number, try again: '
+            self.use_item()
+            
+        #make sure the choice is an index in the item list
+        if (choice >= len(self.inventory)  or choice < 0):
+            valid = False    
+            
+        if valid:
+            myItem = self.inventory[choice]
+            self.heal(Items.heal[myItem]) 
+            self.inventory.remove(myItem)
+        else:
+            clear()
+            print 'Invalid Choice, try again'
+            self.use_item()
 
             
     def add_weapon(self, myWeapon):
