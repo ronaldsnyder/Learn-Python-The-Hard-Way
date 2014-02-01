@@ -15,4 +15,5 @@ weapon = {"Rusty Sword": ["Rusty Sword", 7, 5, "an old rusty sword that looks li
 armor = {"Cloth Armor": ["Cloth Armor", 1, 0, 1, "clothes that look gnawed on by mice."],
          "Leather Armor": ["Leather Armor", 10, 10, 10, "leather armor that provides some protection."],
          "Chain Armor": ["Chain Armor", 17, 20, 30, "sturdy chain armor."],
+         "Test Armor": ["Test Armor", 150, 20, 150, "THE ALMIGHTY TEST ARMOR."],
           }

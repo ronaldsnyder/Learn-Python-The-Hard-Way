@@ -98,6 +98,14 @@ class Arena(object):
             hit = hero.super_strike(monster)
             monster.damage(hit)
             
+        #hidden selection for testing and mowing down monsters   
+        elif answer == "rds":
+            hero.add_weapon(Items.weapon['Test Sword'])
+            hero.add_armor(Items.armor['Test Armor'])
+            hit = hero.super_strike(monster)
+            monster.damage(hit)
+            hero.super = True
+            
         else:
             clear()
             print "Invalid Choice, try again"
