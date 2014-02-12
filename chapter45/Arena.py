@@ -65,7 +65,7 @@ class Arena(object):
 
         
         
-    
+    #menu for fighting.
     def menu(self,hero ,monster):
         myMenu = """
         1. Strike with weapon
